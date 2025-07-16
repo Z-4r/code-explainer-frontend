@@ -1,0 +1,51 @@
+:root {
+    --bg: #f4f4f4;
+    --text: #222;
+    --card: #fff;
+    --border: #ccc;
+    --button-bg: #e0e0e0;
+}
+
+[data-theme='dark'] {
+  --bg: #121212;
+  --text: #eee;
+  --card: #1e1e1e;
+  --border: #444;
+  --button-bg: #333;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1{
+    text-align: center;
+    color: #333;
+}
+
+select, button {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: var(--button-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.output{
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+    white-space: pre-wrap;
+}
