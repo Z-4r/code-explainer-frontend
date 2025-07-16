@@ -13,7 +13,7 @@ const CodeEditor = () => {
 
   
   return (
-    <textarea
+    <Editor
       height="400px"
       defaultLanguage={language}
       value={code}
