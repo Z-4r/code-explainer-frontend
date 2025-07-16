@@ -8,7 +8,7 @@ import LanguageSelector from './components/languageSelector';
 import axios from 'axios';
 import HistoryPanel from './components/HistoryPanel';
 import ThemeToggle from './components/ThemeToggle';
-
+import { analyzeCode } from './analyze.js';
 
 import { setCode, setLanguage, setOutput, setLoading, resetOutput, addToHistory } from './redux/codeSlice.js';
 
@@ -23,15 +23,14 @@ const App= () => {
 
   
   const handleSubmit = async () => {
-    if(!code.trim()) return toast.error("Code cannot be empty!");
+    if(!code.trim()) {
+      return toast.error("Code cannot be empty!");
+    }
 
   dispatch(setLoading(true));
   dispatch(resetOutput());
   try{
-    const res = await axios.post('http://localhost:8000/api/analyze-code/', {
-      code,
-      language
-    });
+    const res = await analyzeCode({ code, language });
     dispatch(setOutput(res.data));
     dispatch(addToHistory({ code, language }));
   }catch(err){
@@ -47,7 +46,7 @@ return(
     <ThemeToggle />
     <LanguageSelector language={language} setLanguage={setLanguage} />
     <CodeEditor code={code} setCode={setCode} language={language} />
-    <button onClick={handleSubmit}>Analyze Code</button>
+    <button onClick={handleSubmit} disabled={loading}>{loading ? "Anazlyzing..." : "Analyze Code"}</button>
     {loading && <p>Loading analysis...</p>}
     {output && <OutputPanel output={output} />}
     <ToastContainer />
