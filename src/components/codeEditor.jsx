@@ -20,7 +20,7 @@ const CodeEditor = () => {
       defaultLanguage={language}
       value={code}
       placeholder="Enter your code"
-      onChange={handleChange}
+      onChange={handleEditorChange}
       theme={theme}
       options={{
         fontSize: 14,
