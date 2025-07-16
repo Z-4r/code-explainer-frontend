@@ -5,16 +5,20 @@ import { setCode } from '../redux/codeSlice';
 
 const CodeEditor = () => {
   const dispatch = useDispatch();
+  const handleChange = (e) => {
+    dispatch(setCode(e.target.value));
+  };
   const code = useSelector((state) => state.code.code);
   const language = useSelector((state) => state.code.language);
 
   
   return (
-    <Editor
+    <textarea
       height="400px"
       defaultLanguage={language}
       value={code}
-      onChange={(value) => setCode(value)}
+      placeholder="Enter your code"
+      onChange={handleChange}
       theme="vs-dark"
       options={{
         fontSize: 14,
