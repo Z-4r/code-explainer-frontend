@@ -10,7 +10,7 @@ export const analyzeCode = async ({ code, language }) => {
         });
         return response.data;
     } catch (error) {
-        console.error("ERror analyzing code:", error.response?.data || error.message)
+        console.error("Error analyzing code:", error.response?.data || error.message)
         throw error;
     }
 }
