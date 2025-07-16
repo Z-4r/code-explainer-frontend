@@ -21,7 +21,7 @@ const CodeEditor = () => {
       value={code}
       placeholder="Enter your code"
       onChange={handleEditorChange}
-      theme={theme}
+      theme='light'
       options={{
         fontSize: 14,
         minimap: { enabled: false },
