@@ -5,6 +5,7 @@ const initialState = {
   language: 'python',
   output: null,
   loading: false,
+  theme: 'light',
   history: JSON.parse(localStorage.getItem('code_history')) || [],
   theme: localStorage.getItem('theme') || 'light',
 };

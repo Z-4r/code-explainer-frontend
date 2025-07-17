@@ -8,7 +8,7 @@ const ThemeToggle = () => {
 
     return (
         <button onClick={() => dispatch(toggleTheme())} style={{ marginBottom: '10px' }}>
-            Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+            Switch to {theme === 'light' ? 'dark' : 'light'} Mode
         </button>
     );
 };

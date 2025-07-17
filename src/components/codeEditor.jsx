@@ -11,7 +11,8 @@ const CodeEditor = () => {
   };
   const code = useSelector((state) => state.code.code);
   const language = useSelector((state) => state.code.language);
-
+  const theme = useSelector((state) => state.code.theme);
+  
   
   return (
     <div style={{ border: '1px solid #ccc', marginTop: '1rem' }}>
@@ -21,7 +22,7 @@ const CodeEditor = () => {
       value={code}
       placeholder="Enter your code"
       onChange={handleEditorChange}
-      theme='light'
+      theme={theme === 'dark' ? 'vs-dark' : 'light'}
       options={{
         fontSize: 14,
         minimap: { enabled: false },
